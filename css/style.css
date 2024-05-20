@@ -1,0 +1,104 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display:flex;
+    background: url('../assets/images/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: auto;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    z-index: -1;
+    overflow-x: hidden;
+    backdrop-filter: brightness(0.25);
+    /* backdrop-filter: brightness(0.25) grayscale(1); */
+    transition: 0.5s;
+}
+
+.container {
+    display:flex;
+    width:90vw;
+}
+
+.sliders {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    flex: 0.5;
+    transition: flex 0.5s ease-in;
+    color: #fff;
+    margin: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+.sliders .wrapper {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 50px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0), transparent);
+}
+
+.sliders .content {
+    position: absolute;
+    bottom: 0px;
+    margin: 25px;
+}
+
+.sliders.active {
+    flex: 5;
+}
+
+.sliders.active .wrapper {
+    opacity: 1;
+     transition: opacity 0.4s ease-in 0.4s;
+}
+
+.sliders.active .content .heading {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    padding-bottom: 5px;
+}
+
+@media(max-width:480px) {
+    .container {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .sliders {
+        display: block;
+    }
+
+    .sliders:nth-of-type(1).active .content {
+        opacity: 1;
+        transition: opacity 0.4s ease-in 0.4s;
+    }
+
+    .sliders:nth-of-type(4), .sliders:nth-of-type(5) {
+        display: none;
+    }
+}
